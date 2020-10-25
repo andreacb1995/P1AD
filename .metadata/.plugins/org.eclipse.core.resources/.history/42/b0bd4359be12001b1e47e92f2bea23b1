@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+public class FilesProperties {
+
+	
+	 static BufferedReader getBufferedReader(String fileName) {
+		try {
+			String path = fileName;
+			File file = new File(path);
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+//			br.close();
+			String strCurrentLine;   
+              
+            while ((strCurrentLine = br.readLine()) != null) {    
+                System.out.println(strCurrentLine);  
+            }
+		}
+		catch (IOException e) {
+			System.out.println("IOException detected.");
+			e.printStackTrace();
+		}
+		return null;
+		
+		
+	}
+	PrintWriter getPrintWriter(String fileName){
+		try {
+			
+			PrintWriter writer = new PrintWriter(fileName);
+			writer.close();
+		}
+		
+		catch (IOException e) {
+			System.out.println("IOException detected.");
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+		
+	}
+	
+	
+	
+	
+
+	
+}

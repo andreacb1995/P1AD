@@ -1,0 +1,94 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class FilesManagedment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Un método counter(String fileName, char vowel, char vowelCapital, String
+//				fileResultName) que devolverá un booleano indicando si fue posible realizar
+//				el volcado del conteo en el fileResultName.txt previamente creado.
+//				○ Un método main(String[] args) que se encargará de ejecutar el método
+//				counter haciendo uso de los argumentos que le llegan al programa en su
+//				llamada. (String [] args).
+//				○ Los argumentos que deben llegarle a esta clase son:
+//				■ El nombre del fichero a procesar y estará en la posición 0 de los
+//				argumentos.
+//				■ La letra de la que hay que hacer el recuento de apariciones y estará
+//				en la posición 1.
+//				■ El nombre del fichero donde se dejarán los resultados y estará en la
+//				posición 2 de los argumentos.
+		String path=".\\contarVocales.txt";
+		counter(path,'a', 'A',"fileResultName.txt");
+		
+	}
+	
+	public static boolean counter(String fileName, char vowel, char vowelCapital, String fileResultName) {
+		//hacer case dentro por si es mayuscula o minuscula
+//		String result=".src\\fileResultName.txt";
+//		FilesProperties.getBufferedReader(result);
+		String rutafichero = fileResultName;
+		File fichero = new File(rutafichero);
+		BufferedReader br = null;
+		try {
+			
+			BufferedWriter bw = null;
+			fichero.createNewFile();
+			System.out.println("El fichero" + fichero +  " se ha creado correctamente");
+			FileReader fr = new FileReader(fileResultName);
+			bw = new BufferedWriter(new FileWriter(fichero)); 
+			br = new BufferedReader(fr);
+			
+			String aux=br.readLine();
+			if(aux !=null) {
+		          System.out.println(aux);
+			}
+			else {
+				System.out.println("es null");
+			}
+			br.close();
+			
+			int counter=0;
+			
+			char [] vowels={'a','e','i','o','u'};
+			
+			char[]arr = fileName.toCharArray();
+			System.out.println( arr);
+			
+			for(int i=0;i<arr.length;i++){
+			      for(int j=0;j<vowels.length;j++){
+			    	  if(arr[i]==vowels[j]){//comparación
+			        	if(arr[i]==vowel) {
+			        		counter++;
+			        			
+			        		
+			        		
+			        	}
+			        	
+			        	
+			        }
+			    }
+			   
+			  
+			}	
+			System.out.println( vowel + ": " + counter);
+			bw.write(vowel + ": " + counter);
+			bw.close();
+		}
+		
+		catch (IOException e) {
+			System.out.println("IOException detected.");
+			e.printStackTrace();
+		}
+		return false;
+		
+			
+		
+	}
+}

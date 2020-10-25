@@ -1,0 +1,79 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Properties;
+
+public class MyEchoClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Socket cliente = null;
+		PrintWriter streamSalida = null;
+		
+		Properties configuracion= new Properties();
+		configuracion.setProperty("direccion","127.0.0.1");
+		configuracion.setProperty("puerto", "2222");
+	
+		
+		
+		try {
+			String rutafichero = ".\\src\\trafic.log";
+			File fichero = new File(rutafichero);
+			BufferedWriter bw = null;
+			bw = new BufferedWriter(new FileWriter(fichero));
+			System.out.println("El fichero" + fichero +" se ha creado correctamente."); 
+			bw.close();
+	    
+	    
+			configuracion.store(new FileOutputStream(".\\src\\echo.props"),
+													"Fichero de configuracion echo.props");
+			//cargamos el fichero de propiedades
+			configuracion.load(new FileInputStream(".\\src\\echo.props"));
+			
+			//para saber las propiedades que haya dentro del fichero
+			System.out.println("direccion="+configuracion.getProperty("direccion"));
+			
+			cliente = new Socket (configuracion.getProperty("direccion"),Integer.parseInt(configuracion.getProperty("puerto")));
+
+			System.out.println("Introduce el mensaje");
+			BufferedReader entrada = new BufferedReader(new InputStreamReader(System.in));
+			streamSalida= new PrintWriter (cliente.getOutputStream(),true);
+			BufferedReader streamEntrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+			
+			String linea= null;
+			while((linea = entrada.readLine())!= null) {
+				streamSalida.println(linea);
+				System.out.println(streamEntrada.readLine());
+				streamSalida.flush();
+				System.out.println("Introduce un nuevo mensaje");
+			}
+			streamEntrada.close();
+			streamSalida.close();
+			cliente.close();
+		
+		}catch(IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				streamSalida.println("");
+				cliente.close();
+				System.out.println("Cliente cerrado");
+				
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+			
+		}
+		
+		
+	}
+
+}

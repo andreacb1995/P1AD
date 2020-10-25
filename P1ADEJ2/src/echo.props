@@ -1,0 +1,4 @@
+#Fichero de configuracion echo.props
+#Tue Oct 20 11:27:59 GMT+01:00 2020
+direccion=127.0.0.1
+puerto=2222

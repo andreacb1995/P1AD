@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class FilesManagedment {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Un método counter(String fileName, char vowel, char vowelCapital, String
+//				fileResultName) que devolverá un booleano indicando si fue posible realizar
+//				el volcado del conteo en el fileResultName.txt previamente creado.
+//				○ Un método main(String[] args) que se encargará de ejecutar el método
+//				counter haciendo uso de los argumentos que le llegan al programa en su
+//				llamada. (String [] args).
+//				○ Los argumentos que deben llegarle a esta clase son:
+//				■ El nombre del fichero a procesar y estará en la posición 0 de los
+//				argumentos.
+//				■ La letra de la que hay que hacer el recuento de apariciones y estará
+//				en la posición 1.
+//				■ El nombre del fichero donde se dejarán los resultados y estará en la
+//				posición 2 de los argumentos.
+//		counter();
+		
+	}
+	
+	public static boolean counter(String fileName, char vowel, char vowelCapital, String fileResultName) {
+		//hacer case dentro por si es mayuscula o minuscula
+//		String result=".src\\fileResultName.txt";
+//		FilesProperties.getBufferedReader(result);
+		
+		char [] vowels={'a','e','i','o','u'};
+		
+		
+		return false;
+			
+		
+			
+		}
+
+}
+
+
+public int counterVowelsPerLine(String line){
+    int counter=0;
+    char [] vowels={'a','e','i','o','u','A','E','I','O','U'};//vocales a usar en la comparacion
+    char [] charsLine=line.toCharArray();
+    for(int i=0;i<charsLine.length;i++){
+      for(int j=0;j<vowels.length;j++){
+        if(charsLine[i]==vowels[j]){//comparacion
+          counter++;
+        }
+      }            
+    }
+    return counter;
+  }

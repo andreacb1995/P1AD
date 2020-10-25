@@ -1,0 +1,100 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		contarVocales();
+	}
+	
+	
+	public static void contarVocales() {
+		
+		private String Filename="";
+		private File  file = null;
+		private FileReader fr = null;
+		private BufferedReader br = null;
+		private List lines = new ArrayList();
+		
+		try {
+			file = new File(".\\P1PSP\\contarvocales.txt");
+			fr = new FileReader(file);
+			br = new BufferedReader(fr);
+			    
+			 if(fr!=null) fr.close();
+			    br = null;
+			    file=null;
+			    System.gc();//llamada a garbage collector
+			    
+			  //lectura de archivo
+			    String line="";
+			    if(br==null){
+			         openFile();
+			    }
+			    if(br!=null){
+			       while((line=br.readLine())!=null) {
+			            lines.add(line);//agregamos las lineas de texto en la lista de lineas
+			       }
+			    }
+			      
+			if(file.exists() ) {
+						System.out.println("El fichero ya existe."); 
+						bw = new BufferedWriter(new FileWriter(fichero, true));    
+						System.out.println("añadiendo fecha actual...");
+						bw.write(simpleDateFormat.format( fecha ));
+						
+			        } else {
+			           bw = new BufferedWriter(new FileWriter(fichero));      
+			           System.out.println("El fichero" + fichero +" se ha creado correctamente."); 
+			           bw.write(simpleDateFormat.format( fecha ));
+			           System.out.println("añadiendo fecha actual...");       
+			        }
+					bw.newLine();
+					bw.close(); 
+					
+				}
+			
+			catch(IOException e){
+				System.out.println("IOException detected.");
+			}
+
+	}
+
+
+	public int counterVowelsPerLine(String line){
+	    int counter=0;
+	    char [] vowels={'a','e','i','o','u','A','E','I','O','U'};//vocales a usar en la comparacion
+	    char [] charsLine=line.toCharArray();
+	    for(int i=0;i<charsLine.length;i++){
+	      for(int j=0;j<vowels.length;j++){
+	        if(charsLine[i]==vowels[j]){//comparacion
+	          counter++;
+	        }
+	      }            
+	    }
+	    return counter;
+	  }
+	  //
+	Lo que nos falta es solo crear una función Java que recorra las lineas de texto y proceda al conteo.
+
+	public int countVowels(String filename) {
+	    int counter = 0;        
+	    try{
+	      setFilename(filename);
+	      openFile();//abrir archivo
+	      readFile();//leer datos
+	    }catch(Exception ex){}
+
+	    for(String charline:lines){
+	      counter+=counterVowelsPerLine(charline);//aplicamos conteo a cada una de las lineas leidas
+	    }
+	    return counter;
+	  }
+	
+}

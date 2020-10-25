@@ -1,0 +1,72 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Recoger como parámetro de ejecución (String [0] args) el fichero a procesar.
+//		○ Recoger como parámetro de ejecución (String[1] args) el directorio dónde
+//		buscar las clases anteriormente creadas.
+//		○ Recoger el tercer parámetro (String[2] args) que contendrá el directorio
+//		donde se encuentre la clase FilesManagedment.
+//		○ Lanzar los procesos utilizando ProcessBuilder.
+//		○ Ejecutar los procesos y recoger los resultados del fichero de entrada y
+//		mostrarlos por pantalla una vez hechos los cálculos, además de crear el
+//		archivo correspondiente con los resultados. Los resultados se mostrarán por
+//		pantalla utilizando la consola o bien una pequeña ventana creada con Java
+//		Swing.
+		
+
+//pb= new ProcessBuilder
+//(java,-cp,classpath,packge FilesMan..,vowel[i],[vowelCapita],fileResultName);
+//[A,E,I,O,U]  
+//HACER UN SLEEP()porque si es un archivo por lo menos de 40 lineas no lo lee tan rapido.
+//sleep(x);3000 : 3seg
+//
+//BUCLE FOR,HACER 5 EJECUCIONES
+//MAIN SALE DEL BUCLE
+//DESPUES LEE LOS..
+//		try {
+//			ProcessBuilder processBuilder = new ProcessBuilder("java","-cp",classpath,FilesManagedment,vowel[i],[voweCapital],fileResultName);
+//vowel[i].uppercased para mayusculas
+//si esta a la misma altura el archivo filesmanagement que el main no hace falta poner la classpath,ni tampoco el -cp
+
+//			Process process = processBuilder.start();
+			
+			
+			
+//		}
+//		catch (IOException e) {
+//			System.out.println("IOException detected.");
+//			e.printStackTrace();
+//		}
+		
+//		 String [] args = new String[2];
+	       args[0] = "hello";
+	       args[1] = "every";
+		for(int i = 0; i < args.length; i++) {
+             System.out.println(args[i]);
+         }
+		
+		
+		String path=".\\src\\contarVocales.txt";
+		FilesProperties.getBufferedReader(path);
+	
+		FilesProperties.getPrintWriter(path);
+		
+//		FilesManagedment()
+		 
+	
+	    
+	}
+
+	
+
+	
+
+}

@@ -1,0 +1,60 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class P1PSPEJ2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		Recoger como parámetro de ejecución (String [0] args) el fichero a procesar.
+//		○ Recoger como parámetro de ejecución (String[1] args) el directorio dónde
+//		buscar las clases anteriormente creadas.
+//		○ Recoger el tercer parámetro (String[2] args) que contendrá el directorio
+//		donde se encuentre la clase FilesManagedment.
+//		○ Lanzar los procesos utilizando ProcessBuilder.
+//		○ Ejecutar los procesos y recoger los resultados del fichero de entrada y
+//		mostrarlos por pantalla una vez hechos los cálculos, además de crear el
+//		archivo correspondiente con los resultados. Los resultados se mostrarán por
+//		pantalla utilizando la consola o bien una pequeña ventana creada con Java
+//		Swing.
+		
+		
+		String path=".\\contarVocales.txt";
+		FilesProperties.getBufferedReader(path);
+		System.out.println();
+		FilesProperties.getPrintWriter(path);
+		
+		
+		int counter=0;
+		String line="13232ahsdy";
+		
+		char [] vowels={'a','e','i','o','u'};
+		
+		char[]arr = line.toCharArray();
+		
+		 System.out.println(arr.length);
+		
+		
+		for(int i=0;i<arr.length;i++){
+		      for(int j=0;j<vowels.length;j++){
+		        if(arr[i]==vowels[j]){//comparacion
+		        	System.out.println(arr[i]);
+		        	System.out.println(vowels[j]);
+		        	
+		        	counter++;
+		        }
+		        
+		      }            
+		    }
+		   System.out.println(counter);
+
+	
+	    
+	}
+
+	
+
+}
